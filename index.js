@@ -39,7 +39,6 @@ function condensedWithMinutesAgo(condensedValues) {
 
     return {
       ...item,
-      startMinutesAgo,
       endMinutesAgo
     };
   });
@@ -57,7 +56,7 @@ app.get('/gridmodel', (req, res) => {
   res.end(JSON.stringify({ fiveseconds: arr, condensed: condensedWithMinutesAgo(condensedArr) }));
 });
 
-app.listen(3000, err => {
+app.listen(6000, err => {
   if (err) throw err;
   console.log('> Running on http://localhost:3000');
 });
