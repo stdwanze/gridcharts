@@ -140,7 +140,7 @@ function condensedWithMinutesAgo(condensedValues) {
 }
 app.get('/gridchart',async (req, res) => {
      const condensedArr = gridModel.getCondensedValues();
-    let img =await getChart(condensedArr);
+    let img =await getChart(condensedWithMinutesAgo(condensedArr));
     res.setHeader('Content-Type', 'image/png');
     res.end(img, 'binary');
   //
