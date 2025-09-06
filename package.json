@@ -9,9 +9,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "chart.js": "^4.5.0",
+    "chartjs-node-canvas": "^5.0.0",
     "polka": "^0.5.2"
   },
- 
   "type": "module"
-
 }
