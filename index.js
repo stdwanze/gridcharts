@@ -56,7 +56,7 @@ app.get('/gridmodel', (req, res) => {
   res.end(JSON.stringify({ fiveseconds: arr, condensed: condensedWithMinutesAgo(condensedArr) }));
 });
 
-app.listen(6000, err => {
+app.listen(3001, err => {
   if (err) throw err;
-  console.log('> Running on http://localhost:3000');
+  console.log('> Running on http://localhost:3001');
 });
