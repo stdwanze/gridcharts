@@ -10,5 +10,8 @@
   "description": "",
   "dependencies": {
     "polka": "^0.5.2"
-  }
+  },
+ 
+  "type": "module"
+
 }
