@@ -30,8 +30,31 @@ async function getChart(data) {
         }]
         
         
+    },
+    options: {
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            size: 16,        // Schriftgröße
+            family: 'Arial', // Schriftart
+            weight: 'bold'   // Schriftstil
+          }
+        
+        }
+      },
+      y: {
+        ticks: {
+          font: {
+            size: 16,
+            family: 'Arial',
+            weight: 'bold'
+          },
+        }
+      }
     }
-    };
+    }
+    }
 
 
     const image = await chartJSNodeCanvas.renderToBuffer(configuration);
