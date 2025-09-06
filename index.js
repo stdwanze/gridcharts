@@ -25,6 +25,18 @@ setInterval(ingestGridData, 5000);
 
 setInterval(crunshData, 50000);
 
+function fiveSecondsWithSecondsAgo(fiveSecondValues) {
+  const now = Date.now();
+  return fiveSecondValues.map(item => {
+    const timeMs = new Date(item.time).getTime();
+    let secondsAgo = Math.round((now - timeMs) / 1000);
+    if (secondsAgo >= 3600) secondsAgo -= 3600;
+    return {
+      ...item,
+      secondsAgo
+    };
+  });
+}
 
 function condensedWithMinutesAgo(condensedValues) {
   const now = Date.now();
@@ -34,8 +46,8 @@ function condensedWithMinutesAgo(condensedValues) {
     let startMinutesAgo = Math.round((now - startMs) / 60000);
     let endMinutesAgo = Math.round((now - endMs) / 60000);
 
-    if (startMinutesAgo > 60) startMinutesAgo -= 60;
-    if (endMinutesAgo > 60) endMinutesAgo -= 60;
+    if (startMinutesAgo >= 60) startMinutesAgo -= 60;
+    if (endMinutesAgo >= 60) endMinutesAgo -= 60;
 
     return {
       ...item,
@@ -53,7 +65,7 @@ app.get('/gridmodel', (req, res) => {
   const condensedArr = gridModel.getCondensedValues();
   // Convert TimeSlice instances to plain objects for JSON
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify({ fiveseconds: arr, condensed: condensedWithMinutesAgo(condensedArr) }));
+  res.end(JSON.stringify({ fiveseconds: fiveSecondsWithSecondsAgo(arr), condensed: condensedWithMinutesAgo(condensedArr) }));
 });
 
 app.listen(3001, err => {
