@@ -1,7 +1,7 @@
 import ChartJSNodeCanvas  from 'chartjs-node-canvas';
 
-const width = 800; // chart width
-const height = 400; // chart height
+const width = 900; // chart width
+const height = 600; // chart height
 const chartJSNodeCanvas = new ChartJSNodeCanvas.ChartJSNodeCanvas({ width, height });
 
 
