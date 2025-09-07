@@ -16,17 +16,26 @@ async function getChart(data) {
     datasets: [{
         label: 'AVG',
         data: data ? data.map(item => item.avg) : [],
-        backgroundColor: ['green']
+        backgroundColor: ['green'],
+        borderWidth: 8,
+        borderColor: 'rgb(0,0,0)',   // Farbe der Linie
+       backgroundColor: 'rgb(0,0,0)', // Füllfarbe unter der Linie
         },
     {
         label: 'MIN',
         data: data ? data.map(item => item.max) : [],
-        backgroundColor: ['red']
+        backgroundColor: ['red'],
+        borderWidth: 6,
+          borderColor: 'rgb(80, 80, 80)',   // Farbe der Linie
+       backgroundColor: 'rgb(80, 80, 80)', // Füllfarbe unter der Linie
         },
         {
         label: 'MAX',
         data: data ? data.map(item => item.min) : [],
-        backgroundColor: ['blue']
+        backgroundColor: ['blue'],
+         borderWidth: 6,
+           borderColor: 'rgb(80, 80, 80)',   // Farbe der Linie
+       backgroundColor: 'rgb(80, 80, 80)', // Füllfarbe unter der Linie
         }]
         
         
@@ -36,7 +45,7 @@ async function getChart(data) {
       x: {
         ticks: {
           font: {
-            size: 18,        // Schriftgröße
+            size: 22,        // Schriftgröße
             family: 'Arial', // Schriftart
             weight: 'bold'   // Schriftstil
           }
@@ -46,7 +55,7 @@ async function getChart(data) {
       y: {
         ticks: {
           font: {
-            size: 18,
+            size: 22,
             family: 'Arial',
             weight: 'bold'
           },
