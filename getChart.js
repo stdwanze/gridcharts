@@ -36,7 +36,7 @@ async function getChart(data) {
       x: {
         ticks: {
           font: {
-            size: 16,        // Schriftgröße
+            size: 18,        // Schriftgröße
             family: 'Arial', // Schriftart
             weight: 'bold'   // Schriftstil
           }
@@ -46,7 +46,7 @@ async function getChart(data) {
       y: {
         ticks: {
           font: {
-            size: 16,
+            size: 18,
             family: 'Arial',
             weight: 'bold'
           },
