@@ -36,6 +36,14 @@ async function getChart(data) {
          borderWidth: 6,
            borderColor: 'rgb(80, 80, 80)',   // Farbe der Linie
        backgroundColor: 'rgb(80, 80, 80)', // Füllfarbe unter der Linie
+        },
+        {
+        label: 'MEDIAMN',
+        data: data ? data.map(item => item.median) : [],
+        backgroundColor: ['orange'],
+         borderWidth: 6,
+           borderColor: 'rgba(218, 39, 39, 1)',   // Farbe der Linie
+       backgroundColor: 'rgba(218, 39, 39, 1)', // Füllfarbe unter der Linie
         }]
         
         
