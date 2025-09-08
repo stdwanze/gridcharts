@@ -57,12 +57,14 @@ class GridModel {
     let count = 0;
     let start = null;
     let end = null;
+    let values = []; 
 
     while (current) {
       if (typeof current.val === 'number') {
         if (current.val < min) min = current.val;
         if (current.val > max) max = current.val;
         sum += current.val;
+        values.push(current.val); 
         count++;
         if (!start) start = current.time;
         end = current.time;
@@ -72,8 +74,19 @@ class GridModel {
 
     if (count === 0) return;
 
+    
     const avg = sum / count;
-    const condensedSlice = { min, max, avg, start, end, next: null };
+    values.sort((a, b) => a - b); 
+    let median; 
+    const mid = Math.floor(values.length / 2); 
+    if (values.length % 2 === 0) { 
+      median = (values[mid - 1] + values[mid]) / 2; 
+    } else { 
+      median = values[mid]; 
+    } 
+
+  
+    const condensedSlice = { min, max, avg, start, median, end, next: null };
 
     if (!this.condensed) {
       this.condensed = condensedSlice;
