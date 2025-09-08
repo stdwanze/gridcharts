@@ -43,7 +43,7 @@ class GridModel {
     while (current) {
       // Copy all properties except 'next'
       const { min, max, avg, start, end } = current;
-      arr.push({ min, max, avg, start, end });
+      arr.push({ min, max, avg,median, start, end });
       current = current.next;
     }
     return arr;
