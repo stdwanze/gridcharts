@@ -17,9 +17,10 @@ async function getChart(data) {
         label: 'AVG',
         data: data ? data.map(item => item.avg) : [],
         backgroundColor: ['green'],
-        borderWidth: 8,
+        borderWidth: 6,
         borderColor: 'rgb(0,0,0)',   // Farbe der Linie
        backgroundColor: 'rgb(0,0,0)', // Füllfarbe unter der Linie
+ borderDash: [1, 1]    
         },
     {
         label: 'MIN',
@@ -28,6 +29,7 @@ async function getChart(data) {
         borderWidth: 6,
           borderColor: 'rgb(80, 80, 80)',   // Farbe der Linie
        backgroundColor: 'rgb(80, 80, 80)', // Füllfarbe unter der Linie
+       borderDash: [3, 3],
         },
         {
         label: 'MAX',
@@ -36,14 +38,15 @@ async function getChart(data) {
          borderWidth: 6,
            borderColor: 'rgb(80, 80, 80)',   // Farbe der Linie
        backgroundColor: 'rgb(80, 80, 80)', // Füllfarbe unter der Linie
-        },
+    borderDash: [3, 3]    
+    },
         {
         label: 'MEDIAN',
         data: data ? data.map(item => item.median) : [],
         backgroundColor: ['orange'],
-         borderWidth: 6,
-           borderColor: 'rgba(218, 39, 39, 1)',   // Farbe der Linie
-       backgroundColor: 'rgba(218, 39, 39, 1)', // Füllfarbe unter der Linie
+         borderWidth: 8,
+          borderColor: 'rgb(0,0,0)',   // Farbe der Linie
+       backgroundColor: 'rgb(0,0,0)', // Füllfarbe unter der Linie
         }]
         
         
