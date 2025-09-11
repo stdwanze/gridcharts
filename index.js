@@ -141,6 +141,7 @@ function condensedWithMinutesAgo(condensedValues) {
 app.get('/gridchart',async (req, res) => {
      const condensedArr = gridModel.getCondensedValues();
     let img =await getChart(condensedWithMinutesAgo(condensedArr));
+  //  let img =await getChart(data1);
     res.setHeader('Content-Type', 'image/png');
     res.end(img, 'binary');
   //
@@ -153,6 +154,13 @@ app.get('/gridmodel', (req, res) => {
   // Convert TimeSlice instances to plain objects for JSON
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify({ fiveseconds: fiveSecondsWithSecondsAgo(arr), condensed: condensedWithMinutesAgo(condensedArr) }));
+});
+
+app.get('/median30s', (req, res) => {
+  const median = gridModel.getMedian30s();
+
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify({ median30s: median }));
 });
 
 

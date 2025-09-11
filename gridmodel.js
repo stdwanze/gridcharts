@@ -26,6 +26,39 @@ class GridModel {
       }
     }
   }
+   getMedian30s() {
+    // Collect the last 6 entries from the linked list
+    const stack = [];
+    let current = this.items;
+    while (current) {
+      stack.push(current);
+      current = current.next;
+    }
+    const lastSix = stack.slice(-6);
+
+    if (lastSix.length === 0) return null;
+
+    // Calculate the median for each entry
+    const medians = lastSix.map(item => {
+      if (typeof item.val === 'number') {
+        return item.val;
+      }
+      return null;
+    }).filter(v => v !== null);
+
+    if (medians.length === 0) return null;
+
+    // Sort and find the median for the 6 values
+    medians.sort((a, b) => a - b);
+    let median;
+    const mid = Math.floor(medians.length / 2);
+    if (medians.length % 2 === 0) {
+      median = (medians[mid - 1] + medians[mid]) / 2;
+    } else {
+      median = medians[mid];
+    }
+    return median;
+  }
 
   get5SecondValues() {
     const arr = [];
@@ -36,6 +69,7 @@ class GridModel {
     }
     return arr;
   }
+
 
   getCondensedValues() {
     const arr = [];
