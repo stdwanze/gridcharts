@@ -1,7 +1,19 @@
 import TimeSlice from './timeslice.js';
 import config from './config.js';
+import Influx from 'influx'
+
 
 let url = config().counterUrl;
+let powerPw = config().powerPw;
+
+
+const influx = new Influx.InfluxDB({
+  host: '192.168.1.55',
+  port: 8086,                 // Standardport
+  database: 'powerdata',    // deine Datenbank
+  username: 'loggerPwr',           // optional
+  password: powerPw,       // optional
+})
 
 
 async function loadTimeSlice() {
