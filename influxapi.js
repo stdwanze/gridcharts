@@ -16,13 +16,15 @@ const influx = new Influx.InfluxDB({
 function writePwrData(val, time) {
     influx.getDatabaseNames()
     .then(names => {
-        if (!names.includes('sensordaten')) {
-        return influx.createDatabase('sensordaten')
+        if (!names.includes('powerdata')) {
+        return influx.createDatabase('powerdata')
         }
     })
     .then(() => {
         console.log('Verbindung hergestellt & Datenbank bereit.')
 
+
+        console.log(`Schreibe Datenpunkt: Wert=${val}, Zeit=${time.toISOString()}`);
         // Beispiel: Datenpunkt schreiben
         return influx.writePoints([
         {
@@ -30,7 +32,7 @@ function writePwrData(val, time) {
             tags: { source: 'tasmota' },
             fields: { grid: val },
             timestamp: time
-        },
+        }
         ])
     })
     .catch(err => {

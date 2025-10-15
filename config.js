@@ -11,6 +11,6 @@ export default function config() {
         cooldown: "cooldown",
         car: "http://192.168.1.160:3000/lastvalparsed",
         performance: "http://192.168.1.160:5000/currDayPerformance",
-        powerPw: "",
+        powerPw: "power",
     };
 }
