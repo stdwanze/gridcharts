@@ -14,9 +14,13 @@ async function loadTimeSlice() {
   }
   const data = await response.json();
   // Assuming the JSON has { max, min, avg }
+
+  let correctedDate = new Date(data.StatusSNS.Time);
+  correctedDate.setHours(correctedDate.getHours() + 1);
+
   return new TimeSlice({
     val: data.StatusSNS.E320.Power_in,
-    time: data.StatusSNS.Time
+    time: correctedDate.toISOString()
   });
 }
 
