@@ -30,7 +30,8 @@ setInterval(ingestGridData, 5000);
 setInterval(crunshData, 50000);
 
 function fiveSecondsWithSecondsAgo(fiveSecondValues) {
-  const now = Date.now();
+  const now = new Date();
+  now.setHours(now.getHours() + 1);
   return fiveSecondValues.map(item => {
     const timeMs = new Date(item.time).getTime();
     let secondsAgo = Math.round((now - timeMs) / 1000);
