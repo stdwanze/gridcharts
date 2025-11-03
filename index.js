@@ -44,6 +44,7 @@ function fiveSecondsWithSecondsAgo(fiveSecondValues) {
 
 function condensedWithMinutesAgo(condensedValues) {
   const now = Date.now();
+  now.setHours(now.getHours() + 1);
   return condensedValues.map(item => {
      const startMs = new Date(item.start).getTime();
     const endMs = new Date(item.end).getTime();
