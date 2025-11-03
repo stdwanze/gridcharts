@@ -48,7 +48,7 @@ function condensedWithMinutesAgo(condensedValues) {
   return condensedValues.map(item => {
      const startMs = new Date(item.start).getTime();
     const endMs = new Date(item.end).getTime();
-    let startMinutesAgo = Math.ound((now - startMs) / 60000);
+    let startMinutesAgo = Math.round((now - startMs) / 60000);
     let endMinutesAgo = Math.round((now - endMs) / 60000);
 
     if (startMinutesAgo >= 60) startMinutesAgo -= 60;
