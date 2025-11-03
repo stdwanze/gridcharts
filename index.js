@@ -43,7 +43,7 @@ function fiveSecondsWithSecondsAgo(fiveSecondValues) {
 }
 
 function condensedWithMinutesAgo(condensedValues) {
-  const now = Date.now();
+  const now = new Date();
   now.setHours(now.getHours() + 1);
   return condensedValues.map(item => {
      const startMs = new Date(item.start).getTime();
