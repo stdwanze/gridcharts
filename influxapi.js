@@ -22,9 +22,9 @@ function writePwrData(val, time) {
     })
     .then(() => {
         console.log('Verbindung hergestellt & Datenbank bereit.')
-
-
-        console.log(`Schreibe Datenpunkt: Wert=${val}, Zeit=${time.toISOString()}`);
+        let time1 = new Date(time);
+        time1.setHours(time.getHours() - 1);
+        console.log(`Schreibe Datenpunkt: Wert=${val}, Zeit=${time1.toISOString()}`);
         // Beispiel: Datenpunkt schreiben
         return influx.writePoints([
         {
