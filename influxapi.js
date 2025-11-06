@@ -22,8 +22,8 @@ function writePwrData(val, time) {
     })
     .then(() => {
         console.log('Verbindung hergestellt & Datenbank bereit.')
-        let time1 = new Date(time);
-        time1.setHours(time.getHours() - 1);
+        let time1 = new Date();
+        
         console.log(`Schreibe Datenpunkt: Wert=${val}, Zeit=${time1.toISOString()}`);
         // Beispiel: Datenpunkt schreiben
         return influx.writePoints([
@@ -31,7 +31,7 @@ function writePwrData(val, time) {
             measurement: 'power',
             tags: { source: 'tasmota' },
             fields: { grid: val },
-            timestamp: time
+            timestamp: time1
         }
         ])
     })
